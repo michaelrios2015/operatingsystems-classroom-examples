@@ -6,24 +6,34 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
- 
+
 using namespace std;
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
     pid_t pid;
-    
+
     int i;
 
-    for (i = 0; i < 3; ++i) {
-        
+    // just a loop
+    for (i = 0; i < 3; ++i)
+    {
+
+        // so we fork this program
         pid = fork();
 
-        if (pid == 0) {
+        // if it is a child
+        if (pid == 0)
+        {
+            // do nothing
             wait(NULL);
-        } else {
+        }
+        // for the parent
+        else
+        {
+            // ohhh I think I get it a bt
             cout << "Child Process. i = " << i << endl;
-        }   
+        }
     }
     return 0;
 }
